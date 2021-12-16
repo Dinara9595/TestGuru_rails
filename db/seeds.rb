@@ -18,7 +18,7 @@ questions = Question.create!([{body: 'Сколько планет в Солне�
                               {body: 'Выбери вариант ответа, что соотвествует категории Рыбы', test_id: tests[4].id}])
 
 
-answers = Answer.create!([{body: '8', correct: true, question_id: questions[0].id},
+Answer.create!([{body: '8', correct: true, question_id: questions[0].id},
                           {body: '5', correct: false, question_id: questions[0].id},
                           {body: '20', correct: false, question_id: questions[1].id},
                           {body: '24', correct: true, question_id: questions[1].id},
