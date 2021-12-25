@@ -20,7 +20,7 @@ questions = Question.create!([{body: 'Сколько планет в Солне�
 
 Answer.create!([{body: '8', correct: true, question: questions[0]},
                           {body: '5', correct: false, question: questions[0]},
-                          {body: '20', correct: false, question: questions[1]},
+                          {body: '20', correct: false, question: questions[0]},
                           {body: '24', correct: true, question: questions[1]},
                           {body: 'Зима', correct: true, question: questions[2]},
                           {body: 'Лето', correct: false, question: questions[2]},
