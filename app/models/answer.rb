@@ -1,14 +1,14 @@
 class Answer < ApplicationRecord
   belongs_to :question
 
-  scope :choice_of_answer, -> {where(correct: true)}
-
   validates :body, presence: true, uniqueness: true
-  validate :count_answers
+  validate :count_answers, on: :create
+
+  scope :correct_answer, -> {where(correct: true)}
 
   private
 
   def count_answers
-    errors.add(:answers) if question.answers.size == 4
+    errors.add(:answers) if question.answers.count >= 4
   end
 end

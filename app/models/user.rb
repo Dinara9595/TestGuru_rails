@@ -4,5 +4,4 @@ class User < ApplicationRecord
   has_many :tests, through: :tests_users
 
   validates :login, :password, presence: true, uniqueness: true
-
 end
