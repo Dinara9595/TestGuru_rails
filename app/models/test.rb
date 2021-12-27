@@ -12,8 +12,10 @@ class Test < ApplicationRecord
   scope :light_level, -> { where(level: 0..1) }
   scope :medium_level, -> { where(level: 2..4) }
   scope :high_level, -> { where(level: 5..Float::INFINITY) }
-  scope :title_tests, -> (name_category) { joins(:category).where(categories: {name: name_category}).order(title: :desc) }
-  scope :level, -> (level) { where(level: level) } #для того чтобы узнать список всех тестов, который
+  scope :title_tests, ->(name_category) {
+                        joins(:category).where(categories: { name: name_category }).order(title: :desc)
+                      }
+  scope :level, ->(level) { where(level: level) } # для того чтобы узнать список всех тестов, который
   # проходит пользователь на данном уровне сложности (например, 1) надо вызывать вот так user1.tests.level(1)
 
   def self.only_title_tests(name_category)
