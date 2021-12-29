@@ -1,3 +1,11 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  get 'questions/destroy'
+  get 'tests/destroy'
+  get 'tests/new'
+  get 'questions/new'
+  root 'tests#index'
+
+  resources :tests do
+    resources :questions
+  end
 end
