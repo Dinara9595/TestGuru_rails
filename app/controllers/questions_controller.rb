@@ -16,7 +16,7 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    question = @test.questions.build(question_params.merge(test_id: params[:test_id]))
+    question = @test.questions.build(question_params)
     if question.save
       render plain: "Вы создали вопрос: #{question.inspect}"
     else
