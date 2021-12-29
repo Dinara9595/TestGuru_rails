@@ -1,10 +1,11 @@
 class QuestionsController < ApplicationController
-  before_action :find_question, only: %i[show]
+  before_action :find_test
+  before_action :find_question, only: %i[show destroy]
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
 
   def index
-    render plain: Question.where(test_id: params[:test_id]).inspect
+    render plain: @test.questions.inspect
   end
 
   def show
@@ -15,8 +16,12 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    question = Question.create(question_params.merge(test_id: params[:test_id]))
-    render plain: question.inspect
+    question = @test.questions.build(question_params.merge(test_id: params[:test_id]))
+    if question.save
+      render plain: "Вы создали вопрос: #{question.inspect}"
+    else
+      render :new
+    end
   end
 
   def destroy
@@ -31,7 +36,11 @@ class QuestionsController < ApplicationController
   end
 
   def find_question
-    @question = Question.find_by!(id: params[:id], test_id: params[:test_id])
+    @question = @test.questions.find_by!(id: params[:id])
+  end
+
+  def find_test
+    @test = Test.find_by!(id: params[:test_id])
   end
 
   def rescue_with_question_not_found
