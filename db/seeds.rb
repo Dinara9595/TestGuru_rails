@@ -1,6 +1,5 @@
 users = User.create!([{ login: 'Dinara', password: '1234' }, { login: 'Di', password: 'qwerty' }])
 categories = Category.create!([{ name: 'Солнечная система' }, { name: 'Животный мир' }, { name: 'Созвездия' }])
-
 tests = Test.create!([{ title: 'Планеты', level: 0, category: categories[0], author: users[0] },
                       { title: 'Планета Земля', level: 0, category: categories[0], author: users[0] },
                       { title: 'Птицы', level: 1, category: categories[1], author: users[0] },

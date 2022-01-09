@@ -1,2 +1,15 @@
 ru:
   hello: "Привет, мир!"
+  activerecord:
+    errors:
+      models:
+        test:
+          attributes:
+            category:
+              required: ": Категория должна существовать"
+            author:
+              required: ": Автор должен существовать"
+            title:
+              blank: ": Заголовок не может быть пустым"
+            level:
+              taken: ": Уровень уже пройден"
