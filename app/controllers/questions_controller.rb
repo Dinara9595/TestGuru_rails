@@ -1,22 +1,20 @@
 class QuestionsController < ApplicationController
-  before_action :find_test, only: %i[index create new]
-  before_action :find_question, only: %i[show destroy]
+  before_action :find_test, only: %i[create new]
+  before_action :find_question, only: %i[show edit update destroy]
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
 
-  def index
-    render plain: @test.questions.inspect
-  end
-
-  def show
-    render plain: @question.inspect
-  end
+  def show; end
 
   def new
+    @question = Question.new(test: @test)
   end
 
+  def edit; end
+
   def create
-    @question = @test.questions.build(question_params)
+    @question = @test.questions.new(question_params)
+
     if @question.save
       redirect_to @question
     else
@@ -24,20 +22,29 @@ class QuestionsController < ApplicationController
     end
   end
 
+  def update
+    if @question.update(question_params)
+      redirect_to test_path(@question.test)
+    else
+      render :edit
+    end
+  end
+
   def destroy
     @question.destroy
-    render plain: "Вопрос удален"
+    redirect_to test_path(@question.test)
   end
 
   private
 
   def question_params
-    params.require(:question).permit(:body)
+    params.require(:question).permit(:body, :test_id)
   end
 
   def find_question
     @question = Question.find(params[:id])
   end
+
 
   def find_test
     @test = Test.find(params[:test_id])

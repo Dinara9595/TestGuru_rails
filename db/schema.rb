@@ -11,6 +11,7 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema.define(version: 2021_12_19_122551) do
+
   create_table "answers", force: :cascade do |t|
     t.text "body", null: false
     t.boolean "correct", default: false, null: false
