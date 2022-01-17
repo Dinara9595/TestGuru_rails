@@ -1,5 +1,13 @@
+<h1><%= @question.test.title%> Question</h1>
 <p>
-  <strong>Body:</strong>
   <%= @question.body %>
 </p>
-<%= link_to 'Назад', tests_path %>
+
+<h2>Answers</h2>
+  <%= link_to 'Новый ответ', new_question_answer_path(@question) %><br><br>
+<al>
+  <%= render @question.answers %>
+</al>
+
+<%= link_to 'Edit', edit_question_path(@question) %> |
+<%= link_to 'Back', test_path(@question.test) %><br><br>

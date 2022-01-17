@@ -5,6 +5,8 @@ class Test < ApplicationRecord
   has_many :questions, dependent: :destroy
   has_many :tests_users, dependent: :destroy
   has_many :users, through: :tests_users
+  has_many :test_passages
+  has_many :users, through: :test_passages
 
   validates :title, presence: { case_sensitive: true }, uniqueness: { scope: :level }
   validates :level, numericality: { :greater_than_or_equal_to => 0, only_integer: true }
@@ -21,4 +23,20 @@ class Test < ApplicationRecord
   def self.only_title_tests(name_category)
     self.title_tests(name_category).pluck(:title)
   end
+
+  def count_correct_answer_for_test(test)
+    number = []
+    test.questions.each do |question|
+      number << question.answers.correct.size
+    end
+    number.size
+  end
+
+  def success_percent(test, test_passage)
+    total_number = count_correct_answer_for_test(test)
+    actual_number = test_passage.correct_questions
+    ((actual_number.to_f / total_number.to_f ) * 100).to_i
+  end
+
+
 end
