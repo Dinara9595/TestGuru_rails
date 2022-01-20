@@ -3,13 +3,12 @@ class TestPassage < ApplicationRecord
   belongs_to :test
   belongs_to :current_question, class_name: 'Question', optional: true, foreign_key: 'question_id'
 
-  before_validation :before_validation_set_first_question, on: :create
-  before_update :before_update_set_next_questions
+  before_validation :set_current_question
+
+  SUCCESS_RATIO = 85
 
   def accept!(answer_ids)
-    if correct_answer?(answer_ids)
-      self.correct_questions +=1
-    end
+    self.correct_questions +=1 if correct_answer?(answer_ids)
     save!
   end
 
@@ -17,27 +16,19 @@ class TestPassage < ApplicationRecord
     current_question.nil?
   end
 
-  def number_question(test_passage)
-    questions = test_passage.test.questions
-    total_number_questions = questions.count
-    number= questions.index(current_question) + 1
-    "Вопрос: #{number} из #{total_number_questions}"
+  def successful?(percent)
+    true if percent >= SUCCESS_RATIO
   end
 
   private
 
-  def before_update_set_next_questions
+  def set_current_question
     self.current_question = next_question
   end
 
-  def before_validation_set_first_question
-    self.current_question = test.questions.first if test.present?
-  end
-
   def correct_answer?(answer_ids)
-    correct_answers_count = correct_answers.count
-    (correct_answers_count == correct_answers.where(id: answer_ids).count) &&
-    correct_answers_count == answer_ids.count
+    answer_ids ||= []
+    correct_answers.ids.sort == answer_ids.map(&:to_i).sort
   end
 
   def correct_answers
@@ -45,6 +36,10 @@ class TestPassage < ApplicationRecord
   end
 
   def next_question
-    test.questions.order(:id).where('id > ?', current_question.id).first
+    if current_question
+      test.questions.order(:id).where('id > ?', current_question.id).first
+    else
+      test.questions.first if test.present?
+    end
   end
 end

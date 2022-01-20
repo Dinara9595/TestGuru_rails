@@ -1,15 +1,16 @@
 <h1>Тест <%=@test_passage.test.title %> был завершен!</h1>
-  <h2>Количество правильных ответов: <%=@test_passage.correct_questions %>
-    из <%= @test_passage.test.count_correct_answer_for_test(@test_passage.test) %><br>
+
+  <h2>Количество правильных ответов: <%= actual_number_answers(@test_passage) %>
+    из <%= total_number_answers(@test_passage) %><br>
   </h2>
 
-<% percent = @test_passage.test.success_percent(@test_passage.test, @test_passage) %>
 
 <h3> Процент успеха:
-<% if percent <= 85 %>
-  <p style="color:#DC143C"><%= "#{percent}%"%><br></p> Тест не пройден
+  <% percent = percent(@test_passage) %>
+<% if @test_passage.successful?(percent) %>
+    <p style="color:#32CD32"><%= "#{percent}%"%><br></p> Тест пройден
 <% else %>
-  <p style="color:#32CD32"><%= "#{percent}%"%><br></p> Тест пройден
+    <p style="color:#DC143C"><%= "#{percent}%"%><br></p> Тест не пройден
 <% end %>
 </h3>
 

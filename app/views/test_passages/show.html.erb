@@ -1,6 +1,6 @@
 <h1>Текущий тест: <%= @test_passage.test.title %></h1>
 
-<h2><%= @test_passage.number_question(@test_passage) %></h2>
+<h2>Вопрос: <%= current_question_number(@test_passage) %> из <%= total_question_number(@test_passage) %></h2>
 
 <b>
   <%= @test_passage.current_question.body %>

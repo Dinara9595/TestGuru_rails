@@ -1,6 +1,6 @@
 class TestsController < ApplicationController
   include ActionView::Helpers::TextHelper
-  before_action :find_test, only: %i[show edit update destroy start count_correct_answer_for_test]
+  before_action :find_test, only: %i[show edit update destroy start]
   before_action :find_user, only: %i[start]
 
   def index
