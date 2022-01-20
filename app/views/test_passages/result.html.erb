@@ -1,12 +1,12 @@
 <h1>Тест <%=@test_passage.test.title %> был завершен!</h1>
 
-  <h2>Количество правильных ответов: <%= actual_number_answers(@test_passage) %>
-    из <%= total_number_answers(@test_passage) %><br>
+  <h2>Количество правильных ответов: <%= @test_passage.correct_questions %>
+    из <%= @test_passage.total_question_number(@test_passage) %><br>
   </h2>
 
 
 <h3> Процент успеха:
-  <% percent = percent(@test_passage) %>
+  <% percent = @test_passage.percent(@test_passage) %>
 <% if @test_passage.successful?(percent) %>
     <p style="color:#32CD32"><%= "#{percent}%"%><br></p> Тест пройден
 <% else %>
