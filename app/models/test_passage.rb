@@ -16,21 +16,22 @@ class TestPassage < ApplicationRecord
     current_question.nil?
   end
 
-  def successful?(percent)
-    percent >= SUCCESS_RATIO
+  def successful?
+    result = percent
+    result >= SUCCESS_RATIO
   end
 
-  def percent(test_passage)
-    total_number = total_question_number(test_passage)
-    ((test_passage.correct_questions.to_f / total_number.to_f ) * 100).to_i
+  def percent
+    total_number = total_question_number
+    ((correct_questions.to_f / total_number.to_f ) * 100).to_i
   end
 
-  def current_question_number(test_passage)
-    test_passage.test.questions.order(:id).where('id < ?', current_question.id).size + 1
+  def current_question_number
+    test.questions.order(:id).where('id < ?', current_question.id).size + 1
   end
 
-  def total_question_number(test_passage)
-    test_passage.test.questions.count
+  def total_question_number
+    test.questions.count
   end
 
   private
