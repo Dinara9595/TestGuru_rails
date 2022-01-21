@@ -17,13 +17,11 @@ class TestPassage < ApplicationRecord
   end
 
   def successful?
-    result = percent
-    result >= SUCCESS_RATIO
+    percent >= SUCCESS_RATIO
   end
 
   def percent
-    total_number = total_question_number
-    ((correct_questions.to_f / total_number.to_f ) * 100).to_i
+    ((correct_questions.to_f / total_question_number.to_f ) * 100).to_i
   end
 
   def current_question_number
