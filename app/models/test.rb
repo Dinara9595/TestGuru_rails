@@ -5,6 +5,8 @@ class Test < ApplicationRecord
   has_many :questions, dependent: :destroy
   has_many :tests_users, dependent: :destroy
   has_many :users, through: :tests_users
+  has_many :test_passages, dependent: :destroy
+  has_many :users, through: :test_passages
 
   validates :title, presence: { case_sensitive: true }, uniqueness: { scope: :level }
   validates :level, numericality: { :greater_than_or_equal_to => 0, only_integer: true }

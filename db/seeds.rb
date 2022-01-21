@@ -8,11 +8,11 @@ tests = Test.create!([{ title: 'Планеты', level: 0, category: categories[
                       { title: 'Рыбы', level: 1, category: categories[1], author: users[0] }])
 
 questions = Question.create!([{ body: 'Сколько планет в Солнечной системе?', test: tests[0] },
-                              { body: 'Сколько часов в сутках на планете Земля?', test: tests[1] },
-                              { body: 'Какое самое холодное время года планеты Земля?', test: tests[1] },
-                              { body: 'Выбери вариант ответа, что соотвествует категории Птица', test: tests[2] },
-                              { body: 'Сколько звезд в созвездии Большая Медведица?', test: tests[3] },
-                              { body: 'Выбери вариант ответа, что соотвествует категории Рыбы', test: tests[4] }])
+                              { body: 'Сколько часов в сутках на планете Земля?', test: tests[2] },
+                              { body: 'Какое самое холодное время года планеты Земля?', test: tests[2] },
+                              { body: 'Выбери вариант ответа, что соотвествует категории Птица', test: tests[3] },
+                              { body: 'Сколько звезд в созвездии Большая Медведица?', test: tests[4] },
+                              { body: 'Выбери вариант ответа, что соотвествует категории Рыбы', test: tests[5] }])
 
 Answer.create!([{ body: '8', correct: true, question: questions[0] },
                 { body: '5', correct: false, question: questions[0] },

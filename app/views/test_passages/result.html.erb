@@ -1,0 +1,16 @@
+<h1>Тест <%=@test_passage.test.title %> был завершен!</h1>
+
+  <h2>Количество правильных ответов: <%= @test_passage.correct_questions %>
+    из <%= @test_passage.total_question_number %><br>
+  </h2>
+
+
+<h3> Процент успеха:
+<% if @test_passage.successful? %>
+    <p style="color:#32CD32"><%= "#{@test_passage.percent}%"%><br></p> Тест пройден
+<% else %>
+    <p style="color:#DC143C"><%= "#{@test_passage.percent}%"%><br></p> Тест не пройден
+<% end %>
+</h3>
+
+<%= link_to 'Назад к списку всех тестов', tests_path %>
