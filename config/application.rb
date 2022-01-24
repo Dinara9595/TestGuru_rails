@@ -17,7 +17,7 @@ module TestGuru
     # These settings can be overridden in specific environments using the files
     # in config/environments, which are processed later.
     #config.i18n.enforce_available_locales = false
-    config.i18n.default_locale = :en
+    config.i18n.default_locale = :ru
 
 
     config.time_zone = 'Moscow'
