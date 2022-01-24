@@ -1,5 +1,7 @@
 class TestsController < ApplicationController
   include ActionView::Helpers::TextHelper
+
+  before_action :authenticate_user!
   before_action :find_test, only: %i[show edit update destroy start]
 
   def index
@@ -40,7 +42,7 @@ class TestsController < ApplicationController
   end
 
   def start
-    @user = User.first
+    @user = current_user
     @user.tests.push(@test)
     redirect_to @user.test_passage(@test)
   end

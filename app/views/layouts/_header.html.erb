@@ -1,0 +1,5 @@
+<% if logged_in? %>
+  <p class="nav_user ">Welcome, <b><%= current_user.login %></b> <%= link_to 'Guru!', tests_path %><br>
+    <%= link_to 'Выйти', logout_path %>
+  </p>
+<% end %>
