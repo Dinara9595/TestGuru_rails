@@ -1,5 +1,5 @@
 <%= form_with url: sessions_path, local: true do |form| %>
-  <%= flash_message(flash[:alert]) %>
+  <%= flash_message(:alert) %>
 <p>
   <%= form.label :login %>
   <%= form.text_field :login, id: :login %>
