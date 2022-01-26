@@ -19,8 +19,7 @@ class TestsController < ApplicationController
   def edit; end
 
   def create
-    @test = Test.new(test_params.merge({author: current_user}))
-
+    @test = current_user.created_tests.build(test_params)
     if @test.save
       redirect_to @test
     else
@@ -49,7 +48,7 @@ class TestsController < ApplicationController
   private
 
   def test_params
-    params.require(:test).permit(:title, :level, :category_id, :author_id)
+    params.require(:test).permit(:title, :level, :category_id)
   end
 
   def find_test

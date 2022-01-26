@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_22_001854) do
+ActiveRecord::Schema.define(version: 2022_01_26_144826) do
 
   create_table "answers", force: :cascade do |t|
     t.text "body", null: false
@@ -63,6 +63,7 @@ ActiveRecord::Schema.define(version: 2022_01_22_001854) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "password_digest"
+    t.integer "author_id"
   end
 
   add_foreign_key "answers", "questions"
