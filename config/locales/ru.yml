@@ -10,6 +10,14 @@ ru:
             author:
               required: ": Автор должен существовать"
             title:
-              blank: ": Заголовок не может быть пустым"
+              blank: ": Поле Title не может быть пустым"
             level:
               taken: ": Уровень уже пройден"
+        user:
+          attributes:
+            login:
+              blank: ": Поле Login не может быть пустым"
+            Password:
+              blank: ": Поле Password не может быть пустым"
+            Password_confirmation:
+              blank: ": Поле Password_confirmation не может быть пустым"

@@ -1,5 +1,7 @@
 class TestsController < ApplicationController
   include ActionView::Helpers::TextHelper
+
+  before_action :authenticate_user!
   before_action :find_test, only: %i[show edit update destroy start]
 
   def index
@@ -17,8 +19,7 @@ class TestsController < ApplicationController
   def edit; end
 
   def create
-    @test = Test.new(test_params)
-
+    @test = current_user.created_tests.build(test_params)
     if @test.save
       redirect_to @test
     else
@@ -40,15 +41,14 @@ class TestsController < ApplicationController
   end
 
   def start
-    @user = User.first
-    @user.tests.push(@test)
-    redirect_to @user.test_passage(@test)
+    current_user.tests.push(@test)
+    redirect_to current_user.test_passage(@test)
   end
 
   private
 
   def test_params
-    params.require(:test).permit(:title, :level, :category_id, :author_id)
+    params.require(:test).permit(:title, :level, :category_id)
   end
 
   def find_test
