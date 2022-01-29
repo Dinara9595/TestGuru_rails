@@ -1,0 +1,16 @@
+<h1>Все тесты</h1>
+
+<p>
+  <%= link_to 'Новый тест', new_admin_test_path %>
+</p>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Level</th>
+    <th>Number of questions</th>
+    <th colspan="4">Действия</th>
+  </tr>
+
+  <%= render @tests %>
+</table>
