@@ -15,8 +15,8 @@ ru:
               taken: ": Уровень уже пройден"
         user:
           attributes:
-            login:
-              blank: ": Поле Login не может быть пустым"
+            email:
+              blank: ": Поле Email не может быть пустым"
             Password:
               blank: ": Поле Password не может быть пустым"
             Password_confirmation:

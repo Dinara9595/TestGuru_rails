@@ -1,4 +1,4 @@
-users = User.create!([{ login: 'Dinara', password: '1234' }, { login: 'Di', password: 'qwerty' }])
+users = User.create!([{ email: 'Di@example.com', password: '123456' }, { email: 'Dinara@example.com', password: 'qwerty' }])
 categories = Category.create!([{ name: 'Солнечная система' }, { name: 'Животный мир' }, { name: 'Созвездия' }])
 tests = Test.create!([{ title: 'Планеты', level: 0, category: categories[0], author: users[0] },
                       { title: 'Планеты', level: 1, category: categories[0], author: users[0] },
@@ -29,7 +29,3 @@ Answer.create!([{ body: '8', correct: true, question: questions[0] },
                 { body: 'Муравей', correct: true, question: questions[5] },
                 { body: 'Гнездо', correct: true, question: questions[5] }])
 
-tests_users = TestsUser.create!([{ test: tests[0], user: users[0] },
-                                 { test: tests[1], user: users[1] },
-                                 { test: tests[2], user: users[1] },
-                                 { test: tests[4], user: users[1] }])
