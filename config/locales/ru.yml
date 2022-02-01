@@ -13,6 +13,7 @@ ru:
               blank: ": Поле Title не может быть пустым"
             level:
               taken: ": Уровень уже пройден"
+
         user:
           attributes:
             email:
@@ -21,3 +22,9 @@ ru:
               blank: ": Поле Password не может быть пустым"
             Password_confirmation:
               blank: ": Поле Password_confirmation не может быть пустым"
+
+        test_passages:
+          gist:
+            success: "Gist успешно сохранен!"
+            failure: "Во время сохранения gist произошла ошибка"
+

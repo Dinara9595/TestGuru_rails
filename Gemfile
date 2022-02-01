@@ -62,3 +62,9 @@ gem "rubocop", "~> 1.24"
 #gem "bcrypt", "~> 3.1"
 
 gem "devise", "~> 4.8"
+
+#gem "faraday", "~> 2.1"
+
+#gem "octokit", "~> 4.22"
+
+gem "faraday", "~> 1.9"
