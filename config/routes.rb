@@ -15,9 +15,9 @@ Rails.application.routes.draw do
 
   #  GET /test_passages/101/result
   resources :test_passages, only: %i[show update] do
+    resources :gists, only: :create
     member do
       get :result
-      post :gist
     end
   end
 
@@ -27,5 +27,9 @@ Rails.application.routes.draw do
         resources :answers, shallow: true, except: :index
       end
     end
+  end
+
+  namespace :admin do
+    resources :gists, only: :index
   end
 end

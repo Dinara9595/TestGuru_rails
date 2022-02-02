@@ -1,4 +1,5 @@
 ru:
+  description: "Вопрос теста %{test_title} TestGuru"
   hello: "Привет, мир!"
   activerecord:
     errors:
@@ -25,6 +26,6 @@ ru:
 
         test_passages:
           gist:
-            success: "Gist успешно сохранен!"
+            success: "Gist успешно сохранен %{gist_url}"
             failure: "Во время сохранения gist произошла ошибка"
 

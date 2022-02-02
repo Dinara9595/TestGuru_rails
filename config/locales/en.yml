@@ -30,8 +30,9 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
-  test_passages:
-    gist:
-      success: "Gist was successfully created!"
-      failure: "An error occurred while saving gist"
+  description: A questions about %{test_title} from TestGuru
+  hello: Hello world
+  gists:
+    create:
+      success: Gist was successfully created %{gist_url}
+      failure: An error occurred while saving gist
