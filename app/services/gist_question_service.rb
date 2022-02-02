@@ -1,5 +1,4 @@
 class GistQuestionService
-  ACCESS_TOKEN = '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'
 
   def initialize(question)
     @question = question
@@ -8,6 +7,7 @@ class GistQuestionService
   end
 
   def call
+    byebug
     @client.create_gist(gist_params)
   end
 
