@@ -1,5 +1,10 @@
 ru:
+  description: "Вопрос теста %{test_title} TestGuru"
   hello: "Привет, мир!"
+  gists:
+    create:
+      success: "Gist успешно сохранен: %{gist_url}"
+      failure: "Во время сохранения gist произошла ошибка"
   activerecord:
     errors:
       models:
@@ -13,6 +18,7 @@ ru:
               blank: ": Поле Title не может быть пустым"
             level:
               taken: ": Уровень уже пройден"
+
         user:
           attributes:
             email:
@@ -21,3 +27,6 @@ ru:
               blank: ": Поле Password не может быть пустым"
             Password_confirmation:
               blank: ": Поле Password_confirmation не может быть пустым"
+
+
+
