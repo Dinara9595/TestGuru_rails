@@ -1,6 +1,10 @@
 ru:
   description: "Вопрос теста %{test_title} TestGuru"
   hello: "Привет, мир!"
+  gists:
+    create:
+      success: "Gist успешно сохранен: %{gist_url}"
+      failure: "Во время сохранения gist произошла ошибка"
   activerecord:
     errors:
       models:
@@ -24,8 +28,5 @@ ru:
             Password_confirmation:
               blank: ": Поле Password_confirmation не может быть пустым"
 
-        test_passages:
-          gist:
-            success: "Gist успешно сохранен %{gist_url}"
-            failure: "Во время сохранения gist произошла ошибка"
+
 

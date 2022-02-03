@@ -34,5 +34,5 @@ en:
   hello: Hello world
   gists:
     create:
-      success: Gist was successfully created %{gist_url}
+      success: "Gist was successfully created: %{gist_url}"
       failure: An error occurred while saving gist
