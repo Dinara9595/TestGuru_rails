@@ -1,6 +1,6 @@
 document.addEventListener('turbolinks:load', function() {
-    var password = document.getElementById('user_password')
-    var password_confirmation = document.getElementById('user_password_confirmation')
+    let password = document.getElementById('user_password')
+    let password_confirmation = document.getElementById('user_password_confirmation')
 
     let pass, re_pass;
 
