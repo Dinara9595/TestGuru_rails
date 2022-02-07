@@ -12,5 +12,8 @@
  *
  *= require_tree .
  *= require_self
- *= require styles.css
  */
+
+@import "bootstrap";
+@import "typography/icons.scss";
+@import "global.scss";
