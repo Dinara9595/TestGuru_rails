@@ -15,5 +15,5 @@
  */
 
 @import "bootstrap";
-@import "typography/icons.scss";
 @import "global.scss";
+@import "typography/icons.scss";
