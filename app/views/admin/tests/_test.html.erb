@@ -1,7 +1,6 @@
 <tr>
   <td class="align_middle">
     <%= content_tag :span, test.title, class: 'test-title', data: { test_id: test.id } %>
-    <!--- <span class="test-title" data-test-id="<%= test.id %>"><%= test.title %></span> --->
 
     <%= render 'form_inline', test: test == @test ? @test : test %>
   </td>

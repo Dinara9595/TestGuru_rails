@@ -1,6 +1,6 @@
 <h1>Текущий тест: <%= @test_passage.test.title %></h1>
 
-<h2>Вопрос: <%= @test_passage.current_question_number %> из <%= @test_passage.total_question_number %></h2>
+<h3>Вопрос: <%= @test_passage.current_question_number %> из <%=@test_passage.total_question_number %></h3>
 
 <b>
   <b><%= @test_passage.current_question.body %></b>
@@ -15,5 +15,11 @@
     </p>
   <% end %>
   <p><%= link_to 'Gist Question', test_passage_gists_path(@test_passage), method: :post %></p>
-  <p><%= form.submit 'Next' %></p>
+
+  <div class="progress-status">
+    <%= content_tag :div, '', class: 'myprogress-bar', data: { progress_info: @test_passage.current_question_number * 100 / @test_passage.total_question_number } do %>
+    <% end %>
+  </div>
+
+  <p><%= form.submit 'Next'%></p>
 <% end %>
