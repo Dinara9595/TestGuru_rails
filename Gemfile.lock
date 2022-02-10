@@ -152,10 +152,10 @@ GEM
       racc (~> 1.4)
     nokogiri (1.13.1-x86_64-linux)
       racc (~> 1.4)
-    octicons (16.3.0)
-    octicons_helper (16.3.0)
+    octicons (16.3.1)
+    octicons_helper (16.3.1)
       actionview
-      octicons (= 16.3.0)
+      octicons (= 16.3.1)
       railties
     octokit (4.22.0)
       faraday (>= 0.9)
@@ -204,7 +204,7 @@ GEM
       thor (~> 1.0)
     rainbow (3.1.1)
     rake (13.0.6)
-    rb-fsevent (0.11.0)
+    rb-fsevent (0.11.1)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
     regexp_parser (2.2.0)

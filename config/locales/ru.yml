@@ -1,4 +1,8 @@
 ru:
+  admin:
+    tests:
+      form_inline:
+        submit: ОК
   description: "Вопрос теста %{test_title} TestGuru"
   hello: "Привет, мир!"
   gists:

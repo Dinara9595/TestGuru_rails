@@ -30,6 +30,10 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
+  admin:
+    tests:
+      form_inline:
+        submit: OK
   description: A questions about %{test_title} from TestGuru
   hello: Hello world
   gists:
