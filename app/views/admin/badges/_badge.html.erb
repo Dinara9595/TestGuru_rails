@@ -1,0 +1,12 @@
+<tr>
+  <td class="align_middle"><%= badge.name %></td>
+  <td class="align_middle"><%= badge.file_name %></td>
+  <td class="align_middle"><%= badge.author_badge.email %></td>
+  <td class="align_middle"><%= badge.badge_rule.name %></td>
+  <td class="align_middle"><%= link_to 'Просмотр бейджа', admin_badge_path(badge) %></td>
+  <td class="align_middle">
+    <%= link_to 'Редактировать бейдж',
+                edit_admin_badge_path(badge)%>
+  </td>
+  <td class="align_middle"><%= link_to 'Удалить бейдж', admin_badge_path(badge), method: :delete, data: { confirm: "Вы уверены?"} %></td>
+</tr>

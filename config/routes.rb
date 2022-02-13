@@ -19,7 +19,10 @@ Rails.application.routes.draw do
     member do
       get :result
     end
+
   end
+
+  resources :badges_users, only: %i[index]
 
   namespace :admin do
     resources :tests do
@@ -33,5 +36,13 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :gists, only: :index
+  end
+
+  namespace :admin do
+    resources :badges
+  end
+
+  namespace :admin do
+    resources :badge_rules
   end
 end

@@ -1,0 +1,16 @@
+<h1>Все бейджи</h1>
+
+<p><%= link_to 'Новый badge', new_admin_badge_path %></p>
+<p><%= link_to 'Все правила для бейджей', admin_badge_rules_url %></p>
+
+<%= render 'shared/errors', resource: @badge %>
+<table class="table">
+  <tr>
+    <th>Name</th>
+    <th>File_name</th>
+    <th>Author</th>
+    <th>Rules</th>
+    <th colspan="5">Действия</th>
+  </tr>
+  <%= render @badges %>
+</table>

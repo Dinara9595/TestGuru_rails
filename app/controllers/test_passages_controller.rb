@@ -18,6 +18,10 @@ class TestPassagesController < ApplicationController
     end
   end
 
+  def set_badge(number)
+    @badge = Badge.find(number)
+  end
+
   private
 
   def set_test_passage
