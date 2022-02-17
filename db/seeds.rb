@@ -1,5 +1,5 @@
 users = User.create!([{ email: 'Di@example.com', password: '123456' }, { email: 'Dinara@example.com', password: 'qwerty' }])
-categories = Category.create!([{ name: 'Солнечная система' }, { name: 'Животный мир' }, { name: 'Созвездия' }])
+categories = Category.create!([{ name: 'Solar system' }, { name: 'Animals' }, { name: 'Constellations' }])
 tests = Test.create!([{ title: 'Планеты', level: 0, category: categories[0], author: users[0] },
                       { title: 'Планета Земля', level: 5, category: categories[0], author: users[0] },
                       { title: 'Птицы', level: 3, category: categories[1], author: users[0] },
@@ -28,14 +28,5 @@ Answer.create!([{ body: '8', correct: true, question: questions[0] },
                 { body: 'Муравей', correct: false, question: questions[5] },
                 { body: 'Гнездо', correct: false, question: questions[5] }])
 
-admins = Admin.create!([{ email: "admin@example.com", password: "qwerty", first_name: "Admin", last_name: "Adminov" }])
-
-badge_rules = BadgeRule.create!([{ name: 'Успешное прохождение тестов одной категории', author_rule: admins[0] },
-                                 { name: 'Успешное прохождение теста с первой попытки', author_rule: admins[0] },
-                                 { name: 'Успешное прохождение тестов одного уровня', author_rule: admins[0] }])
-
-Badge.create!([{ name: "Желтая звезда", file_name: "badge_category.jpg", author_badge: admins[0], badge_rule: badge_rules[0] },
-               { name: "Зеленая звезда", file_name: "badge_level.jpg", author_badge: admins[0], badge_rule: badge_rules[1] },
-               { name: "Фиолетовая звезда", file_name: "badge_first_try.jpg", author_badge: admins[0], badge_rule: badge_rules[2] }])
-
+Admin.create!([{ email: "admin@example.com", password: "qwerty", first_name: "Admin", last_name: "Adminov" }])
 

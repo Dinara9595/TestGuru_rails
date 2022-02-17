@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_13_173706) do
+ActiveRecord::Schema.define(version: 2022_02_12_170855) do
 
   create_table "answers", force: :cascade do |t|
     t.text "body", null: false
@@ -21,23 +21,15 @@ ActiveRecord::Schema.define(version: 2022_02_13_173706) do
     t.index ["question_id"], name: "index_answers_on_question_id"
   end
 
-  create_table "badge_rules", force: :cascade do |t|
-    t.string "name"
-    t.integer "author_rule_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["author_rule_id"], name: "index_badge_rules_on_author_rule_id"
-  end
-
   create_table "badges", force: :cascade do |t|
-    t.string "name"
-    t.string "file_name"
+    t.string "name", null: false
+    t.integer "file_name", null: false
+    t.integer "rule", null: false
+    t.integer "rule_parameter", null: false
     t.integer "author_badge_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "rule_id"
     t.index ["author_badge_id"], name: "index_badges_on_author_badge_id"
-    t.index ["rule_id"], name: "index_badges_on_rule_id"
   end
 
   create_table "badges_users", force: :cascade do |t|
@@ -124,8 +116,6 @@ ActiveRecord::Schema.define(version: 2022_02_13_173706) do
   end
 
   add_foreign_key "answers", "questions"
-  add_foreign_key "badge_rules", "users", column: "author_rule_id"
-  add_foreign_key "badges", "badge_rules", column: "rule_id"
   add_foreign_key "badges", "users", column: "author_badge_id"
   add_foreign_key "badges_users", "badges"
   add_foreign_key "badges_users", "users"

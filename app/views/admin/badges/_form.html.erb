@@ -7,14 +7,18 @@
 
   <p>
     <%= form.label :file_name %>
-    <%= form.text_field :file_name, id: :file_name %>
+    <%= form.select :file_name, Badge.file_names.keys.to_a %>
   </p><br>
 
   <p>
-    <%= form.label :badge_rule_id %>
-    <%= form.collection_select :rule_id, BadgeRule.all, :id, :name, prompt: true %>
+    <%= form.label :rule %>
+    <%= form.select :rule, Badge.rules.keys.to_a  %>
   </p><br>
-<br>
+
+  <p>
+    <%= form.label :rule_parameter %>
+    <%= form.select :rule_parameter, Badge.rule_parameters.keys.to_a %>
+  </p><br>
 
   <p><%= form.submit%>
 

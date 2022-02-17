@@ -1,9 +1,0 @@
-<tr>
-  <td class="align_middle"><%= badge_rule.name %></td>
-  <td class="align_middle"><%= link_to 'Просмотр правила', admin_badge_rule_path(badge_rule) %></td>
-  <td class="align_middle">
-    <%= link_to 'Редактировать правило',
-                edit_admin_badge_rule_path(badge_rule)%>
-  </td>
-  <td class="align_middle"><%= link_to 'Удалить правило', admin_badge_rule_path(badge_rule), method: :delete, data: { confirm: "Вы уверены?"} %></td>
-</tr>

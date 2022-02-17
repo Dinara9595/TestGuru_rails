@@ -1,5 +1,4 @@
 class Admin::BadgesController < Admin::BaseController
-
   before_action :find_badge, only: %i[show edit update destroy]
 
   def index
@@ -43,6 +42,6 @@ class Admin::BadgesController < Admin::BaseController
   end
 
   def badge_params
-    params.require(:badge).permit(:name, :file_name, :rule_id)
+    params.require(:badge).permit(:name, :file_name, :rule, :rule_parameter)
   end
 end

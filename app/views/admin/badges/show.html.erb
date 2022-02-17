@@ -6,12 +6,17 @@
 <p>
   <strong>File_name:</strong>
   <%= @badge.file_name %>
-  <%= image_tag "#{@badge.file_name}", :class => "style_image_badge" %>
+  <%= image_tag "#{@badge.file_name + "." + "jpg"}", :class => "style_image_badge" %>
 </p>
 
 <p>
   <strong>Rule:</strong>
-  <%= @badge.badge_rule.name %>
+  <%= @badge.rule %>
+</p>
+
+<p>
+  <strong>Rule_parameter:</strong>
+  <%= @badge.rule_parameter %>
 </p>
 
 <p>

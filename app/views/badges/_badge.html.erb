@@ -1,5 +1,4 @@
 <tr>
-  <td class="align_middle"><%= badge.badge_rule.name %></td>
   <td class="align_middle"><%= badge.name %></td>
-  <td><%= image_tag "#{badge.file_name}", :class => "style_image_badge" %></td>
-  </tr>
+  <td><%= image_tag "#{badge.file_name + "." + "jpg"}", :class => "style_image_badge" %></td>
+</tr>

@@ -1,8 +1,9 @@
 <tr>
   <td class="align_middle"><%= badge.name %></td>
-  <td class="align_middle"><%= badge.file_name %></td>
+  <td class="align_middle"><%= badge.file_name + "." + "jpg" %></td>
   <td class="align_middle"><%= badge.author_badge.email %></td>
-  <td class="align_middle"><%= badge.badge_rule.name %></td>
+  <td class="align_middle"><%= badge.rule %></td>
+  <td class="align_middle"><%= badge.rule_parameter %></td>
   <td class="align_middle"><%= link_to 'Просмотр бейджа', admin_badge_path(badge) %></td>
   <td class="align_middle">
     <%= link_to 'Редактировать бейдж',

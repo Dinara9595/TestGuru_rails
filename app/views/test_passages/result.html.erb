@@ -13,21 +13,12 @@
 <% end %>
 </h3>
 
-<% if current_user.badge_by_category(@test_passage.test.category.name) %>
-    <p>Вы получили бейдж: <%= current_user.badges.last.badge_rule.name %><p>
-    <%= image_tag "badge_category.jpg", :class => "style_image_badge" %>
+<% if @badges %>
+  <% @badges.each do |badge| %>
+    <p>Вы получили бейдж:</p>
+    <%=badge.name %>
+    <%= image_tag "#{badge.file_name + "." + "jpg"}", :class => "style_image_badge" %><br>
+  <% end %>
 <% end %>
-
-<% if current_user.badge_by_test_first_try(@test_passage.test.title) %>
-    <p>Вы получили бейдж: <%= current_user.badges.last.badge_rule.name %><p>
-    <%= image_tag "badge_first_try.jpg", :class => "style_image_badge" %>
-<% end %>
-
-<% if current_user.badge_by_test_level(@test_passage.test.level) %>
-    <p>Вы получили бейдж: <%= current_user.badges.last.badge_rule.name %><p>
-    <%= image_tag "badge_level.jpg", :class => "style_image_badge" %>
-<% end %><br>
-
-
-
+<br>
 <%= link_to 'Назад к списку всех тестов', tests_path %>

@@ -21,4 +21,10 @@ class Test < ApplicationRecord
   def self.only_title_tests(name_category)
     self.title_tests(name_category).pluck(:title)
   end
+
+  def self.titles_all_tests
+    tests_titles = []
+    self.all.each { |test| tests_titles << test.title }
+    tests_titles
+  end
 end
