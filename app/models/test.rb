@@ -21,4 +21,8 @@ class Test < ApplicationRecord
   def self.only_title_tests(name_category)
     self.title_tests(name_category).pluck(:title)
   end
+
+  def self.titles_all_tests
+    pluck(:title)
+  end
 end

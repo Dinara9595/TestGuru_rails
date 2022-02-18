@@ -19,19 +19,21 @@ Rails.application.routes.draw do
     member do
       get :result
     end
+
   end
 
+  resources :badges, only: %i[index]
+
+  resources :badges_users, only: %i[index]
+
   namespace :admin do
+    resources :gists, only: :index
+    resources :badges
     resources :tests do
       patch :update_inline, on: :member
-
       resources :questions, shallow: true, except: :index do
         resources :answers, shallow: true, except: :index
       end
     end
-  end
-
-  namespace :admin do
-    resources :gists, only: :index
   end
 end

@@ -23,7 +23,7 @@ class AnswersControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to answer_url(Answer.last)
   end
 
-  test "should show answer" do
+  test "should index answer" do
     get answer_url(@answer)
     assert_response :success
   end

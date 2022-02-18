@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_01_144059) do
+ActiveRecord::Schema.define(version: 2022_02_12_170855) do
 
   create_table "answers", force: :cascade do |t|
     t.text "body", null: false
@@ -19,6 +19,26 @@ ActiveRecord::Schema.define(version: 2022_02_01_144059) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["question_id"], name: "index_answers_on_question_id"
+  end
+
+  create_table "badges", force: :cascade do |t|
+    t.string "name", null: false
+    t.integer "file_name", null: false
+    t.integer "rule", null: false
+    t.integer "rule_parameter", null: false
+    t.integer "author_badge_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["author_badge_id"], name: "index_badges_on_author_badge_id"
+  end
+
+  create_table "badges_users", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "badge_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["badge_id"], name: "index_badges_users_on_badge_id"
+    t.index ["user_id"], name: "index_badges_users_on_user_id"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -96,6 +116,9 @@ ActiveRecord::Schema.define(version: 2022_02_01_144059) do
   end
 
   add_foreign_key "answers", "questions"
+  add_foreign_key "badges", "users", column: "author_badge_id"
+  add_foreign_key "badges_users", "badges"
+  add_foreign_key "badges_users", "users"
   add_foreign_key "gists", "questions"
   add_foreign_key "gists", "users"
   add_foreign_key "questions", "tests"

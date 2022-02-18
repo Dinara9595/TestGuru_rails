@@ -13,4 +13,12 @@
 <% end %>
 </h3>
 
+<% if @badges %>
+  <% @badges.each do |badge| %>
+    <p>Вы получили бейдж:</p>
+    <%=badge.name %>
+    <%= image_tag "#{badge.file_name + "." + "jpg"}", :class => "style_image_badge" %><br>
+  <% end %>
+<% end %>
+<br>
 <%= link_to 'Назад к списку всех тестов', tests_path %>
