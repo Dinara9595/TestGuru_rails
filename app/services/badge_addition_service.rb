@@ -1,13 +1,13 @@
 class BadgeAdditionService
 
-  def initialize(current_test, current_user)
-    @current_test_passage = current_test
+  def initialize(current_test_passage, current_user)
+    @current_test_passage = current_test_passage
     @current_user = current_user
   end
 
   def call
     Badge.select do |badge|
-      send(badge.rule, badge.rule_parameter)
+      send(badge.rule + "?", badge.rule_parameter)
     end
   end
 

@@ -27,7 +27,7 @@ class TestPassagesController < ApplicationController
   end
 
   def add_badges_user(badges, user)
-    badges.each {|badge| user.badges.push(badge)} if badges.any?
+    badges.each { |badge| user.badges.push(badge) }
   end
 
   private
