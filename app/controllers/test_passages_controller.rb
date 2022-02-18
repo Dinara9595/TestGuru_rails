@@ -16,7 +16,6 @@ class TestPassagesController < ApplicationController
       TestsMailer.completed_test(@test_passage).deliver_now
       @user_badges = BadgeAdditionService.new(@test_passage, current_user).call
       add_badges_user(@user_badges, current_user)
-      byebug
       redirect_to result_test_passage_path(@test_passage, badges_ids: badges_ids_user(@user_badges))
     else
       render :show
@@ -28,7 +27,6 @@ class TestPassagesController < ApplicationController
   end
 
   def add_badges_user(badges, user)
-    byebug
     badges.each {|badge| user.badges.push(badge)} if badges.any?
   end
 
