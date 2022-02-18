@@ -23,8 +23,6 @@ class Test < ApplicationRecord
   end
 
   def self.titles_all_tests
-    tests_titles = []
-    self.all.each { |test| tests_titles << test.title }
-    tests_titles
+    pluck(:title)
   end
 end

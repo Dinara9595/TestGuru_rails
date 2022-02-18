@@ -6,8 +6,6 @@ class Category < ApplicationRecord
   validates :name, presence: true
 
   def self.only_name
-    category_name = []
-    self.all.each { |category| category_name << category.name }
-    category_name
+    pluck(:name)
   end
 end
