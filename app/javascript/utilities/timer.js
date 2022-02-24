@@ -1,6 +1,5 @@
 document.addEventListener('turbolinks:load', function() {
     let timeMinut = document.getElementById("minutes").dataset.leftTime;
-    console.log(timeMinut)
     let timerShow = document.getElementById("timer");
 
     timer = setInterval(function () {
