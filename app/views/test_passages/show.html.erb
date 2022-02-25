@@ -19,7 +19,12 @@
   <div class="progress-status">
     <%= content_tag :div, '', class: 'myprogress-bar', data: { progress_info: @test_passage.current_question_number * 100 / @test_passage.total_question_number } do %>
     <% end %>
-  </div>
+  </div><br>
 
-  <p><%= form.submit 'Next'%></p>
+  <%= content_tag :div, '', id: 'minutes', data: { left_time: @test_passage.timer_left_time } do %>
+  <% end %>
+  <div id="timer"></div>
+
+
+ <p><%= form.submit 'Next'%></p>
 <% end %>
